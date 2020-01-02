@@ -1,12 +1,11 @@
-AlertDialog
+Alert
 -
-[![](https://jitpack.io/v/enChenging/AlertDialog.svg)](https://jitpack.io/#enChenging/AlertDialog)
-
+[![](https://jitpack.io/v/enChenging/Alert.svg)](https://jitpack.io/#enChenging/Alert)
 
 效果图如下：
 
 <div align="left" >
-	<img src="https://github.com/enChenging/AlertDialog/blob/master/screenshot/video.gif" width="200">
+	<img src="https://github.com/enChenging/Alert/blob/master/screenshot/video.gif" width="200">
 </div>
 
 ## 用法
@@ -25,7 +24,7 @@ allprojects {
  在build.gradle文件中的dependencies下添加引用：
 	
 ```java
-implementation 'com.github.enChenging:AlertDialog:1.0'
+implementation 'com.github.enChenging:Alert:1.0.0'
 ```
 
 
@@ -38,7 +37,7 @@ private List<ItemBean> listData = new ArrayList<>();
         listData.add(new ItemBean("条目 " + i, 0));
     }
     
-new AlertDialog(MainActivity.this)
+new Alert(MainActivity.this)
         .builder()
         .setMsg("仿ios无标题弹窗")
         .setPositiveButton(new View.OnClickListener() {
@@ -50,7 +49,7 @@ new AlertDialog(MainActivity.this)
         })
         .show();
 
-new AlertDialog(MainActivity.this)
+new Alert(MainActivity.this)
         .builder()
         .setTitle("标题")
         .setMsg("仿ios弹窗")
@@ -67,10 +66,10 @@ new AlertDialog(MainActivity.this)
             }
         }).show();
 
-new AlertDialog(MainActivity.this)
-        .builder(AlertDialog.Type.BOTTOM)
+new Alert(MainActivity.this)
+        .builder(Alert.Type.BOTTOM)
         .addItem("清空列表")
-        .setOnItemClickListener(new AlertDialog.OnAlertItemClickListener() {
+        .setOnItemClickListener(new Alert.OnAlertItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
                 Toast.makeText(MainActivity.this, position + "", Toast.LENGTH_SHORT).show();
@@ -78,11 +77,11 @@ new AlertDialog(MainActivity.this)
         })
         .show();
 
-new AlertDialog(MainActivity.this)
-        .builder(AlertDialog.Type.BOTTOM)
+new Alert(MainActivity.this)
+        .builder(Alert.Type.BOTTOM)
         .addItem("相机")
         .addItem("相册")
-        .setOnItemClickListener(new AlertDialog.OnAlertItemClickListener() {
+        .setOnItemClickListener(new Alert.OnAlertItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
                 Toast.makeText(MainActivity.this, position + "", Toast.LENGTH_SHORT).show();
@@ -90,10 +89,10 @@ new AlertDialog(MainActivity.this)
         })
         .show();
 
-new AlertDialog(MainActivity.this)
-        .builder(AlertDialog.Type.BOTTOM)
+new Alert(MainActivity.this)
+        .builder(Alert.Type.BOTTOM)
         .addItem(bottomData)
-        .setOnItemClickListener(new AlertDialog.OnAlertItemClickListener() {
+        .setOnItemClickListener(new Alert.OnAlertItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
                 Toast.makeText(MainActivity.this, position + "", Toast.LENGTH_SHORT).show();
@@ -101,10 +100,10 @@ new AlertDialog(MainActivity.this)
         })
         .show();
 
-new AlertDialog(MainActivity.this)
-        .builder(AlertDialog.Type.BOTTOM)
+new Alert(MainActivity.this)
+        .builder(Alert.Type.BOTTOM)
         .addItem(listData)
-        .setOnItemClickListener(new AlertDialog.OnAlertItemClickListener() {
+        .setOnItemClickListener(new Alert.OnAlertItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
                 Toast.makeText(MainActivity.this, position + "", Toast.LENGTH_SHORT).show();
@@ -112,23 +111,23 @@ new AlertDialog(MainActivity.this)
         })
         .show();
 
-new AlertDialog(MainActivity.this)
-        .builder(AlertDialog.Type.PROGRESS)
+new Alert(MainActivity.this)
+        .builder(Alert.Type.PROGRESS)
         .setProgressTextGone()
         .show();
 
-new AlertDialog(MainActivity.this)
-        .builder(AlertDialog.Type.PROGRESS)
+new Alert(MainActivity.this)
+        .builder(Alert.Type.PROGRESS)
         .show();
 
-new AlertDialog(MainActivity.this)
-        .builder(AlertDialog.Type.PROGRESS)
+new Alert(MainActivity.this)
+        .builder(Alert.Type.PROGRESS)
         .setProgressText("自定义文字自定义文字自定义文字自定义文字自定义文字")
         .show();
 
-new AlertDialog(MainActivity.this)
-        .builder(AlertDialog.Type.CUSTOM_DIALOG, R.layout.custom_dialog_layout)
-        .initDialogLayout(new AlertDialog.OnInitDialogLayoutListener() {
+new Alert(MainActivity.this)
+        .builder(Alert.Type.CUSTOM_DIALOG, R.layout.custom_dialog_layout)
+        .initDialogLayout(new Alert.OnInitDialogLayoutListener() {
             @Override
             public void initView(View view, final Dialog dialog) {
                 view.findViewById(R.id.iv_close).setOnClickListener(new View.OnClickListener() {
@@ -154,7 +153,7 @@ new AlertDialog(MainActivity.this)
 ## 混淆
 
 ```java
-#AlertDialog
+#Alert
 -dontwarn com.release.alert.**
 -keep class com.release.alert.**{*;}
 
