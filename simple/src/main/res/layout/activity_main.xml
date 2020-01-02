@@ -1,0 +1,77 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_alert"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="btnClick"
+        android:text="无标题弹窗" />
+
+    <Button
+        android:id="@+id/btn_alert2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="btnClick"
+        android:text="普通弹窗" />
+
+    <Button
+        android:id="@+id/btn_alert_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="btnClick"
+        android:text="底部单个弹窗" />
+
+    <Button
+        android:id="@+id/btn_alert_bottom2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="btnClick"
+        android:text="底部2个弹窗" />
+
+    <Button
+        android:id="@+id/btn_alert_bottom3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="btnClick"
+        android:text="底部多个弹窗" />
+
+    <Button
+        android:id="@+id/btn_alert_bottom4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="btnClick"
+        android:text="底部列表弹窗" />
+
+    <Button
+        android:id="@+id/btn_alert_loading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="btnClick"
+        android:text="加载框" />
+
+    <Button
+        android:id="@+id/btn_alert_loading2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="btnClick"
+        android:text="加载框带文字" />
+
+    <Button
+        android:id="@+id/btn_alert_loading3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="btnClick"
+        android:text="加载框自定义文字" />
+
+    <Button
+        android:id="@+id/btn_alert_custom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="btnClick"
+        android:text="传入自定义布局的dialog"
+        android:textAllCaps="false" />
+
+</LinearLayout>

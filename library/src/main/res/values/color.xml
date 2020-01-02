@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="black">#000000</color>
+    <color name="alertdialog_line">#0F000000</color>
+    <color name="alertdialog_bg_sel">#0F000000</color>
+    <color name="alertdialog_neg_blue">#006cff</color>
+    <color name="alertdialog_pos_blue">#006cff</color>
+    <color name="alertdialog_black">#0E0E0E</color>
+    <color name="alertdialog_bottom_gray">#8F8F8F</color>
+    <color name="alertdialog_bottom_blue">#006cff</color>
+
+</resources>
