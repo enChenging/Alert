@@ -14,7 +14,7 @@
         android:background="@drawable/alert_bg"
         >
 
-        <androidx.recyclerview.widget.RecyclerView
+        <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
