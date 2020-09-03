@@ -4,7 +4,7 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
-    <dimen name="dialog_radius">15dp</dimen>
+    <dimen name="dialog_radius">8dp</dimen>
     <dimen name="dialog_line">0.6dp</dimen>
     <dimen name="dialog_btn_size">17sp</dimen>
     <dimen name="dialog_title_size">18sp</dimen>
