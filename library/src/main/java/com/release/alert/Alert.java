@@ -460,4 +460,8 @@ public class Alert {
         }
         dialog.show();
     }
+
+    public void dissmiss(){
+        dialog.dismiss();
+    }
 }
