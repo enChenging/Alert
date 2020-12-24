@@ -3,6 +3,7 @@ package com.release.alert;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.ColorInt;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -185,6 +186,13 @@ public class Alert {
 
     public Alert initDialogLayout(OnInitDialogLayoutListener onInitDialogLayoutListener) {
         onInitDialogLayoutListener.initView(mDialogLayout, dialog);
+        return this;
+    }
+
+    public Alert setBottomCancelBtnColor(@ColorInt int color){
+        if (txt_cancel != null) {
+            txt_cancel.setTextColor(color);
+        }
         return this;
     }
 

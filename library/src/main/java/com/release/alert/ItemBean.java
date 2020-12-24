@@ -1,5 +1,7 @@
 package com.release.alert;
 
+import android.support.annotation.ColorInt;
+
 /**
  * @author Mr.release
  * @create 2019-12-30
@@ -7,6 +9,8 @@ package com.release.alert;
  */
 public class ItemBean {
     String name;
+
+    @ColorInt
     int color;
 
     public ItemBean(String name, int color) {

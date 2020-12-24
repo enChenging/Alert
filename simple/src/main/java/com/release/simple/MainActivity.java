@@ -2,6 +2,7 @@ package com.release.simple;
 
 import android.app.Dialog;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
@@ -79,8 +80,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btn_alert_bottom2:
                 mAlert.builder(Alert.Type.BOTTOM)
-                        .addItem("相机")
+                        .addItem("相机", ContextCompat.getColor(this,R.color.black))
                         .addItem("相册")
+                        .setBottomCancelBtnColor(ContextCompat.getColor(this,R.color.black))
                         .setOnItemClickListener(new Alert.OnAlertItemClickListener() {
                             @Override
                             public void onItemClick(View view, int position) {

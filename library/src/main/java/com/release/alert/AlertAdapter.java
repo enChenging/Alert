@@ -54,6 +54,9 @@ public class AlertAdapter extends RecyclerView.Adapter<AlertAdapter.ViewHolder> 
             });
         }
         ItemBean bean = mAlertViewItems.get(position);
+        if (bean.getColor() != 0)
+        holder.tv_text.setTextColor(bean.getColor());
+
         if (mAlertViewItems.size() == 1){
             holder.tv_text.setBackground(ContextCompat.getDrawable(mContext,R.drawable.alert_bottom_single2_selector));
         }else {
