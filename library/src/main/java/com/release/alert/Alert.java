@@ -240,6 +240,13 @@ public class Alert {
         return this;
     }
 
+    public Alert setMsgGravity(int gravity) {
+        showMsg = true;
+        if (txt_msg != null)
+            txt_msg.setGravity(gravity);
+        return this;
+    }
+
     /**
      * 设置false点击屏幕或物理返回键，dialog不消失
      *

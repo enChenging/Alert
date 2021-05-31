@@ -25,4 +25,5 @@ dependencies {
 
     implementation project(':library')
 //    implementation 'com.github.enChenging:Alert:1.0.5'
+    implementation 'com.github.enChenging:Alert:latest.release'
 }
