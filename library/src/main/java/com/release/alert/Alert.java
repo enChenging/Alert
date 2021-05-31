@@ -21,7 +21,6 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,10 +38,6 @@ public class Alert {
     private View img_line;
     private Display display;
     private RecyclerView bottom_rv_content;
-    private boolean showTitle = false;
-    private boolean showMsg = false;
-    private boolean showPosBtn = false;
-    private boolean showNegBtn = false;
     private Type mType = Type.NORMAL;
     private TextView mProMsgText;
     private List<ItemBean> mAlertViewItems;
@@ -189,7 +184,7 @@ public class Alert {
         return this;
     }
 
-    public Alert setBottomCancelBtnColor(@ColorInt int color){
+    public Alert setBottomCancelBtnColor(@ColorInt int color) {
         if (txt_cancel != null) {
             txt_cancel.setTextColor(color);
         }
@@ -223,8 +218,11 @@ public class Alert {
      * @return
      */
     public Alert setTitle(String title) {
-        showTitle = true;
-        if (txt_title != null) txt_title.setText(title == null ? "" : title);
+
+        if (txt_title != null) {
+            txt_title.setVisibility(View.VISIBLE);
+            txt_title.setText(title == null ? "" : title);
+        }
         return this;
     }
 
@@ -235,13 +233,14 @@ public class Alert {
      * @return
      */
     public Alert setMsg(String msg) {
-        showMsg = true;
-        if (txt_msg != null) txt_msg.setText(msg == null ? "" : msg);
+        if (txt_msg != null){
+            txt_msg.setVisibility(View.VISIBLE);
+            txt_msg.setText(msg == null ? "" : msg);
+        }
         return this;
     }
 
     public Alert setMsgGravity(int gravity) {
-        showMsg = true;
         if (txt_msg != null)
             txt_msg.setGravity(gravity);
         return this;
@@ -276,17 +275,19 @@ public class Alert {
      * @param listener
      * @return
      */
-    public Alert setPositiveButton(String text,
-                                   final View.OnClickListener listener) {
-        showPosBtn = true;
-        btn_pos.setText(TextUtils.isEmpty(text) ? "确定" : text);
-        btn_pos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listener.onClick(v);
-                dialog.dismiss();
-            }
-        });
+    public Alert setPositiveButton(String text, final View.OnClickListener listener) {
+        if (btn_pos != null) {
+            btn_pos.setVisibility(View.VISIBLE);
+            btn_pos.setBackgroundResource(R.drawable.alert_btn_bottom_selector);
+            btn_pos.setText(TextUtils.isEmpty(text) ? "确定" : text);
+            btn_pos.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onClick(v);
+                    dialog.dismiss();
+                }
+            });
+        }
         return this;
     }
 
@@ -297,15 +298,18 @@ public class Alert {
      * @return
      */
     public Alert setPositiveButton(final View.OnClickListener listener) {
-        showPosBtn = true;
-        btn_pos.setText("确定");
-        btn_pos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listener.onClick(v);
-                dialog.dismiss();
-            }
-        });
+        if (btn_pos != null) {
+            btn_pos.setVisibility(View.VISIBLE);
+            btn_pos.setBackgroundResource(R.drawable.alert_btn_bottom_selector);
+            btn_pos.setText("确定");
+            btn_pos.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onClick(v);
+                    dialog.dismiss();
+                }
+            });
+        }
         return this;
     }
 
@@ -318,8 +322,10 @@ public class Alert {
      */
     public Alert setNegativeButton(String text,
                                    final View.OnClickListener listener) {
-        showNegBtn = true;
         if (btn_neg != null) {
+            btn_neg.setVisibility(View.VISIBLE);
+            btn_neg.setBackgroundResource(R.drawable.alert_btn_left_selector);
+            img_line.setVisibility(btn_pos.getVisibility());
             btn_neg.setText(TextUtils.isEmpty(text) ? "取消" : text);
             btn_neg.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -339,8 +345,10 @@ public class Alert {
      * @return
      */
     public Alert setNegativeButton(final View.OnClickListener listener) {
-        showNegBtn = true;
         if (btn_neg != null) {
+            btn_neg.setVisibility(View.VISIBLE);
+            btn_neg.setBackgroundResource(R.drawable.alert_btn_left_selector);
+            img_line.setVisibility(btn_pos.getVisibility());
             btn_neg.setText("取消");
             btn_neg.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -353,48 +361,6 @@ public class Alert {
         return this;
     }
 
-    /**
-     * 设置布局
-     */
-    private void setLayout() {
-        if (txt_title != null && showTitle) {
-            txt_title.setVisibility(View.VISIBLE);
-        }
-
-        if (txt_msg != null && showMsg) {
-            txt_msg.setVisibility(View.VISIBLE);
-        }
-
-        if (btn_pos != null && !showPosBtn && !showNegBtn) {
-            btn_pos.setText("确定");
-            btn_pos.setVisibility(View.VISIBLE);
-            btn_pos.setBackgroundResource(R.drawable.alert_btn_bottom_selector);
-            btn_pos.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    dialog.dismiss();
-                }
-            });
-        }
-
-        if (btn_pos != null && btn_neg != null && img_line != null && showPosBtn && showNegBtn) {
-            btn_pos.setVisibility(View.VISIBLE);
-            btn_pos.setBackgroundResource(R.drawable.alert_btn_right_selector);
-            btn_neg.setVisibility(View.VISIBLE);
-            btn_neg.setBackgroundResource(R.drawable.alert_btn_left_selector);
-            img_line.setVisibility(View.VISIBLE);
-        }
-
-        if (btn_pos != null && showPosBtn && !showNegBtn) {
-            btn_pos.setVisibility(View.VISIBLE);
-            btn_pos.setBackgroundResource(R.drawable.alert_btn_bottom_selector);
-        }
-
-        if (btn_neg != null && !showPosBtn && showNegBtn) {
-            btn_neg.setVisibility(View.VISIBLE);
-            btn_neg.setBackgroundResource(R.drawable.alert_btn_bottom_selector);
-        }
-    }
 
     public interface OnAlertItemClickListener {
         void onItemClick(View view, int position);
@@ -465,7 +431,6 @@ public class Alert {
     public void show() {
         switch (mType) {
             case NORMAL:
-                setLayout();
                 break;
             case PROGRESS:
                 break;
@@ -476,7 +441,7 @@ public class Alert {
         dialog.show();
     }
 
-    public void dissmiss(){
+    public void dissmiss() {
         dialog.dismiss();
     }
 }

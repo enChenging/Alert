@@ -55,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
                 mAlert.builder()
                         .setTitle("标题")
                         .setMsg("仿ios弹窗")
-                        .setMsgGravity(Gravity.LEFT)
                         .setPositiveButton(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
