@@ -24,7 +24,7 @@ allprojects {
  在build.gradle文件中的dependencies下添加引用：
 	
 ```java
-//implementation 'com.github.enChenging:Alert:${latest.version}'
+//implementation 'com.github.enChenging:Alert:latest.release'
 implementation 'com.github.enChenging:Alert:1.0.5'
 ```
 
